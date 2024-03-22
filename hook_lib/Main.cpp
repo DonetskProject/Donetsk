@@ -10,7 +10,8 @@ void entry_point()
 	XUID xuid;
 	xuid.RandomXUID();
 
-	printf("%i\n", xuid.m_id);
+	printf("%llu\n", xuid.m_id);
+
 
 	r_endframe.create(0x141966950_g, R_EndFrame_Detour);
 	utils::hook::jump(0x141297580_g, Cmd_Exec_Internal);
@@ -54,7 +55,8 @@ BOOL WINAPI DllMain(HMODULE hModule, DWORD Reason, LPVOID lpVoid)
 
 		va = (const char* (*)(const char*, ...))0x1413F3010_g; //j_va
 
-		printf("Base Address: %p\n", 0_b);
+		printf("Base Address: %p\n", (void*)0_b);
+
 
 		// prevents tact error E_REPAIR (28) from happening
 		remove("Data/data/CASCRepair.mrk");
